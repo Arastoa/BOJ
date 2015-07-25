@@ -16,7 +16,7 @@ int main(){
     setting();
     int t; cin >> t;
     while (t--){
-        int  a, b,n, result = 987654321; cin >> n;
+        int  a, b,n; cin >> n;
          
         for (int i = 0; i < pNums.size() && pNums[i] <= n/2; i++){
             if (binary_search(pNums.begin(), pNums.end(), n - pNums[i])){
