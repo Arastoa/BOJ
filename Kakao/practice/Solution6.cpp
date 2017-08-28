@@ -25,10 +25,15 @@ int DPSol(const vector<int>& sticker, int pos, int offset, bool isSelectFirst){
 int solution(vector<int> sticker)
 {
 	int answer = 0;
-    memset(cache, -1, sizeof(cache));
-    n = sticker.size();
-    answer = max(DPSol(sticker, 0, 0, true), DPSol(sticker, 1, 0, false));
-    answer = max(DPSol(sticker, 2, 0, false), answer);
-    
+	n = sticker.size();
+
+	if (n == 1)
+		return sticker[0];
+
+	memset(cache, -1, sizeof(cache));
+	answer = DPSol(sticker, 0, 0, true);
+	answer = max(answer, DPSol(sticker, 1, 0, false));
+	answer = max(answer, DPSol(sticker, 2, 0, false));
+
 	return answer;
 }
